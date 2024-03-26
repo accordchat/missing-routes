@@ -9,10 +9,10 @@ import fetch from "node-fetch";
 const JAVASCRIPT_ENVIRONMENT = fs.readFileSync("./src/template.js").toString();
 
 const getClientSource = async () => {
-	const index = await fetch("https://discord.com/app").then(x => x.text());
+	const index = await fetch("https://accord.ripples.lol").then(x => x.text());
 	const script = [...index.matchAll(/[A-Fa-f0-9]{20}.js/g)].reverse()[0];
 
-	return fetch(`https://canary.discord.com/assets/${script[0]}`).then((x) =>
+	return fetch(`https://accord.ripples.lol/assets/${script[0]}`).then((x) =>
 		x.text()
 	);
 };
@@ -64,7 +64,7 @@ const findClientRoutes = (source: string): string[] => {
 
 const getSbOpenAPI = async () => {
 	return fetch(
-		"https://raw.githubusercontent.com/spacebarchat/server/master/assets/openapi.json"
+		"https://raw.githubusercontent.com/spacebarchat/server/master/assets/openapi.json" // TODO: once we've forked the server, use that openapi doc instead.
 	)
 		.then((x) => x.json())
 		.then((x: any) => Object.keys(x.paths));
@@ -94,7 +94,7 @@ const compare = (discord: string[], spacebar: string[]) => {
 
 	console.log(`Spacebar is missing ${missing.length}`);
 	console.log(`Spacebar implements ${sbRoutes.length}`);
-	console.log(`Discord implements ${dcRoutes.length}`);
+	console.log(`Accord implements ${dcRoutes.length}`);
 
 	fs.writeFileSync("./missing.json", JSON.stringify({
 		missing: missing.length,
