@@ -1,6 +1,6 @@
 {
-  "missing": 337,
-  "spacebar": 154,
+  "missing": 335,
+  "spacebar": 156,
   "discord": 468,
   "routes": [
     "/activities/:id/test-mode",
@@ -337,8 +337,6 @@
     "/users/@me/video-filters/assets/:id",
     "/users/@me/video-filters/assets/:id/last-used",
     "/users/disable-email-notifications",
-    "/users/disable-server-highlight-notifications",
-    "/webhooks/:id",
-    "/webhooks/:id/:id"
+    "/users/disable-server-highlight-notifications"
   ]
 }
