@@ -64,7 +64,7 @@ const findClientRoutes = (source: string): string[] => {
 
 const getSbOpenAPI = async () => {
 	return fetch(
-		"https://raw.githubusercontent.com/spacebarchat/server/master/assets/openapi.json" // TODO: once we've forked the server, use that openapi doc instead.
+		"https://raw.githubusercontent.com/accordchat/backend/master/assets/openapi.json"
 	)
 		.then((x) => x.json())
 		.then((x: any) => Object.keys(x.paths));
